@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template
+        id="survey_fill_form_in_progress_inherit"
+        inherit_id="survey.survey_fill_form_in_progress"
+    >
+        <!-- Filter the questions in the case survey.questions_layout == 'one_page'-->
+        <xpath
+            expr="//t[@t-if=&quot;survey.questions_layout == 'one_page'&quot;]/t[1]"
+            position="attributes"
+        >
+            <attribute
+                name="t-foreach"
+            >survey._filter_pages_or_questions(survey.question_and_page_ids, env.user)</attribute>
+        </xpath>
+    </template>
+</odoo>

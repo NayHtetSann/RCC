@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="survey_question_form_inherit" model="ir.ui.view">
+        <field name="inherit_id" ref="survey.survey_question_form" />
+        <field name="model">survey.question</field>
+        <field name="arch" type="xml">
+            <field name="triggering_question_id" position="after">
+                <field name="group_ids" widget="many2many_tags" />
+            </field>
+        </field>
+    </record>
+</odoo>

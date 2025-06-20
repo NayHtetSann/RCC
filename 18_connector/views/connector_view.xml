@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="action_18_connector" model="ir.actions.act_url">
+        <field name="name">Go To 18</field>
+        <field name="target">new</field>
+        <field name="url">/auth/signin</field>
+    </record>
+
+    <record model="ir.ui.menu" id="connector_template_menu">
+        <field name="name">Go To 18</field>
+        <field name="action" ref="action_18_connector" />
+        <field name="sequence" eval="50" /> <!-- TODO -->
+    </record>
+</odoo>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 Dixmit
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="sign_oca_field_form_view">
+        <field name="name">sign.oca.field.form (in sign_oca)</field>
+        <field name="model">sign.oca.field</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <field name="item_type"/>
+                        <field name="auto_field"/>
+                    </group>
+                    <group>
+                        <group>
+                            <label for="default_width"/>
+                            <div class="o_row">
+                                <field name="default_width"/>
+                                <span>(1.0 = full page size)</span>
+                            </div>
+
+                            <label for="default_height"/>
+                            <div class="o_row">
+                                <field name="default_height"/>
+                                <span>(1.0 = full page size)</span>
+                            </div>
+                        </group>
+                        <group>
+                            <field name="tip"/>
+                            <field name="placeholder"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="sign_oca_field_search_view">
+        <field name="name">sign.oca.field.search (in sign_oca)</field>
+        <field name="model">sign.oca.field</field>
+        <field name="arch" type="xml">
+            <search>
+            <field name="name" />
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="sign_oca_field_tree_view">
+        <field name="name">sign.oca.field.tree (in sign_oca)</field>
+        <field name="model">sign.oca.field</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- TODO -->
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="sign_oca_field_act_window">
+        <field name="name">Fields</field> <!-- TODO -->
+        <field name="res_model">sign.oca.field</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record model="ir.ui.menu" id="sign_oca_field_menu">
+        <field name="name">Fields</field>
+        <field name="parent_id" ref="sign_oca_settings_menu" /> <!-- TODO -->
+        <field name="action" ref="sign_oca_field_act_window" />
+        <field name="sequence" eval="16" /> <!-- TODO -->
+    </record>
+
+</odoo>
