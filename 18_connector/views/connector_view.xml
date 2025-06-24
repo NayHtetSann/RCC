@@ -12,4 +12,25 @@
         <field name="action" ref="action_18_connector" />
         <field name="sequence" eval="50" /> <!-- TODO -->
     </record>
+
+    <!-- User preferences -->
+   <record id="res_users_view_form" model="ir.ui.view">
+        <field name="name">res.users.form.inherit</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='references']" position="after">
+                <page name="connector" string="18 Connector">
+                    <group>
+                        <group>
+                            <field name="use_login" />
+                            <field name="username" attrs="{'invisible': [('use_login','!=', False)], 'required': [('use_login','!=', True)]}"/>
+                            <field name="credential" required="1" />
+                        </group>
+                        <group></group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
 </odoo>

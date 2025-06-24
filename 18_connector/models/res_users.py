@@ -1,15 +1,9 @@
-from odoo import models
+from odoo import models, fields
 
 
 class ResUsers(models.Model):
     _inherit = 'res.users'
 
-    def _redirect_url(self):
-        print('redirect url')
-        return {
-            'name': 'Go to website',
-            'res_model': 'ir.actions.act_url',
-            'type': 'ir.actions.act_url',
-            'target': 'new',
-            'url': 'www.google.com'
-        }
+    use_login = fields.Boolean('User Login Info')
+    username = fields.Char('Login')
+    credential = fields.Char('Password')
