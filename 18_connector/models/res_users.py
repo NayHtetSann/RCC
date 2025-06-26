@@ -7,3 +7,4 @@ class ResUsers(models.Model):
     use_login = fields.Boolean('User Login Info')
     username = fields.Char('Login')
     credential = fields.Char('Password')
+    rpc_token = fields.Char('Token')
